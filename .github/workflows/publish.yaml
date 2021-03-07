@@ -1,14 +1,13 @@
-name: On New Tag
+name: Publish
 
 on:
-  push:
-    tags:
-      - v*
+  release:
+    types:
+    - created
 
 jobs:
   docker:
     runs-on: ubuntu-latest
     steps:
-      - name: Image digest
+      - name: Job info
         run: echo GITHUB_SHA=$GITHUB_SHA GITHUB_REF=$GITHUB_REF
-
