@@ -1,0 +1,14 @@
+name: On New Tag
+
+on:
+  push:
+    tags:
+      - v*
+
+jobs:
+  docker:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Image digest
+        run: echo GITHUB_SHA=$GITHUB_SHA GITHUB_REF=$GITHUB_REF
+
